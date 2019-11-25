@@ -47,7 +47,6 @@ class TwitterBot:
                 time.sleep(20)
             except:
                 time.sleep(3)
-            break
 
         bot.close()
 
