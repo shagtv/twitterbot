@@ -42,12 +42,13 @@ class TwitterBot:
         for link in links:
             bot.get(link)
             time.sleep(3)
-            try:
-                bot.find_element_by_css_selector('div[data-testid="like"]').click()
-                time.sleep(20)
-            except:
+            likes = bot.find_elements_by_css_selector('div[data-testid="like"')
+            for like in likes:
+                try:
+                    like.click()
+                except:
+                    pass
                 time.sleep(3)
-
         bot.close()
 
 
