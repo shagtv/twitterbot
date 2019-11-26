@@ -8,7 +8,7 @@ class TwitterBot:
     def __init__(self, username, password, bot):
         self.username = username
         self.password = password
-        self.bot = webdriver.Chrome()
+        self.bot = bot
 
     def __del__(self):
         self.bot.close()
