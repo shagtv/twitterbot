@@ -5,10 +5,10 @@ from getpass import getpass
 
 
 class TwitterBot:
-    def __init__(self, username, password):
+    def __init__(self, username, password, bot):
         self.username = username
         self.password = password
-        self.bot = webdriver.Firefox()
+        self.bot = webdriver.Chrome()
 
     def __del__(self):
         self.bot.close()
@@ -58,9 +58,15 @@ if __name__ == '__main__':
     print('Welcome to Twitter bot')
     username = input('Enter your twitter username or email: ')
     password = getpass('Enter your password: ')
-    hashtag = input('hashtag: ')
+    hashtag = input('Enter hashtag: ')
+    driver = int(input('Choose webdriver 1) Chrome 2) Firefox: '))
+
+    if driver == 1:
+        bot = webdriver.Chrome()
+    else:
+        bot = webdriver.Firefox()
 
     if username and password and hashtag:
-        bot = TwitterBot(username, password)
+        bot = TwitterBot(username, password, bot)
         bot.login()
         bot.like_tweet(hashtag)
