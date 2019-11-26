@@ -10,6 +10,9 @@ class TwitterBot:
         self.password = password
         self.bot = webdriver.Firefox()
 
+    def __del__(self):
+        self.bot.close()
+
     def login(self):
         bot = self.bot
         bot.get('https://twitter.com/')
@@ -49,7 +52,6 @@ class TwitterBot:
                 except:
                     pass
                 time.sleep(3)
-        bot.close()
 
 
 if __name__ == '__main__':
